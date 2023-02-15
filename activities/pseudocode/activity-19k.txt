@@ -1,0 +1,7 @@
+TYPE Node 
+    DECLARE name: STRING
+    DECLARE rightPointer: INTEGER
+    DECLARE leftPointer: INTEGER
+ENDTYPE
+DECLARE names: ARRAY[0: 49] OF Node
+DECLARE rootPointer: INTEGER

@@ -1,0 +1,4 @@
+TYPE linkedList
+    DECLARE name: STRING
+    DECLARE pointer: INTEGER
+ENDTYPE

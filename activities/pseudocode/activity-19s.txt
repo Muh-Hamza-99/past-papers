@@ -1,0 +1,15 @@
+DECLARE answer: INTEGER
+
+FUNCTION fibonacci (num: INTEGER) RETURNS INTEGER
+    IF num == 0 THEN
+        OUTPUT "Incorrect input!"
+        RETURN -1
+    ELSE IF num == 1 THEN
+        answer = 0
+    ELSE IF num == 2 THEN
+        answer = 1
+    ELSE
+        answer = fibonacci(num - 1) + fibonacci(num - 2)
+    ENDIF
+    RETURN answer
+ENDFUNCTION

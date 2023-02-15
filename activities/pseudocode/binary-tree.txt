@@ -1,0 +1,44 @@
+TYPE Node
+    DECLARE value: INTEGER
+    DECLARE rightPointer: INTEGER
+    DECLARE leftPointer: INTEGER
+ENDTYPE
+
+DECLARE rootPointer: INTEGER
+DECLARE itemPointer: INTEGER
+DECLARE itemValue: INTEGER
+DECLARE nextFreePointer: INTEGER
+DECLARE tree: ARRAY[0:9] OF Node
+CONSTANT nullPointer = -1
+
+OUTPUT "Please enter a value: "
+INPUT INT(itemValue)
+rootPointer = 0
+
+PROCEDURE insertNode(BYVAL itemValue)
+    IF nextFreePointer != nullPointer THEN
+        itemPointer = rootPointer
+        IF itemPointer == 0 THEN
+            tree[0].value = itemValue
+            tree[0].rightPointer = 0
+            tree[0].leftPointer = 0
+        ELSE
+            IF itemValue > tree[itemPointer].value THEN
+                IF tree[itemPointer].rightPointer == 0 THEN
+                    tree[itemPointer].rightPointer = itemPointer
+                    itemPointer = 0
+                ELSE 
+                    itemPointer = tree[itemPointer].rightPointer
+                ENDIF
+            ELSEIF itemValue < tree[itemPointer].value THEN
+                IF tree[itemPointer].leftPointer == 0 THEN
+                    tree[itemPointer].leftPointer = itemPointer
+                    itemPointer = 0
+                ELSE 
+                    itemPointer = tree[itemPointer].leftPointer
+                ENDIF
+            ENDIF
+        ENDIF
+    ELSE
+    ENDIF
+ENDPROCEDURE
